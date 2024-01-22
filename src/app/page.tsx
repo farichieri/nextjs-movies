@@ -1,15 +1,11 @@
-'use client';
-import { Button } from '@/components/ui/button';
-import useStore from '@/store/bear';
+import { SearchBar } from '@/features/search';
+import { MoviesList } from '@/features/movies';
 
-export default function Home() {
-  const bears = useStore((state) => state.bears);
-  const increase = useStore((state) => state.increase);
-
+export default async function Home() {
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-      <h1>{bears} around here...</h1>
-      <Button onClick={() => increase(1)}>Click me</Button>
+    <main className='flex min-h-screen flex-col items-center pb-10 px-4 pt-[calc(var(--nav-height)+1rem)]'>
+      <SearchBar />
+      <MoviesList />
     </main>
   );
 }
