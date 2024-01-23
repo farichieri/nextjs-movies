@@ -9,6 +9,7 @@ import { type Movie } from '..';
 import { useSearchStore } from '@/store';
 import { Loader } from '@/components';
 
+
 interface Props {}
 
 const MoviesList: React.FC<Props> = () => {
