@@ -1,4 +1,6 @@
 import Nav from './Nav';
 import Footer from './Footer';
+import Loader from './Loader';
 
-export { Nav, Footer };
+export { Nav, Footer, Loader };
+
