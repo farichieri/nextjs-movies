@@ -9,7 +9,6 @@ import { type Movie } from '..';
 import { useSearchStore } from '@/store';
 import { Loader } from '@/components';
 
-
 interface Props {}
 
 const MoviesList: React.FC<Props> = () => {
@@ -45,6 +44,14 @@ const MoviesList: React.FC<Props> = () => {
         return acc;
       }
     }, []) || [];
+
+  function Loading() {
+    return (
+      <div className='fixed inset-0 w-screen h-screen flex items-center justify-center bg-black/50 z-50'>
+        <Loader />
+      </div>
+    );
+  }
 
   function NoResults() {
     return (
@@ -83,7 +90,7 @@ const MoviesList: React.FC<Props> = () => {
 
   return (
     <div className='pt-4'>
-      {isFetching && moviesArr?.length === 0 && <Loader />}
+      {isFetching && <Loading />}
       {!isFetching && moviesArr?.length === 0 && <NoResults />}
       {moviesArr?.length > 0 && <Results />}
     </div>
